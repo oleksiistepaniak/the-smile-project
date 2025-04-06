@@ -117,47 +117,45 @@
     </div>
   </div>
 
-  <audio autoplay loop>
+  <!-- Аудіо без autoplay -->
+  <audio id="audio" loop>
     <source src="sertse.mp3" type="audio/mpeg">
   </audio>
 
   <script>
-const text = "Що робить Оленочку неповторною? Дрібниці, які роблять її особливою";
-const container = document.getElementById("firstSlideText");
+    const text = "Що робить Оленочку неповторною? Дрібниці, які роблять її особливою";
+    const container = document.getElementById("firstSlideText");
 
-function animateText() {
-  let delay = 0;
-  const words = text.split(" ");
-  words.forEach((word, wordIndex) => {
-    const wordSpan = document.createElement("span");
+    function animateText() {
+      let delay = 0;
+      const words = text.split(" ");
+      words.forEach((word, wordIndex) => {
+        const wordSpan = document.createElement("span");
 
-    if (["неповторною?", "неповторною", "особливою.", "особливою"].includes(word)) {
-      wordSpan.className = "highlight";
+        if (["неповторною?", "неповторною", "особливою.", "особливою"].includes(word)) {
+          wordSpan.className = "highlight";
+        }
+
+        wordSpan.textContent = word;
+        wordSpan.style.animationDelay = `${delay}s`;
+        container.appendChild(wordSpan);
+
+        delay += 0.5;
+
+        // Додаємо пробіл як окремий span, що займає місце!
+        if (wordIndex !== words.length - 1) {
+          const spaceSpan = document.createElement("span");
+          spaceSpan.innerHTML = "&nbsp;";
+          spaceSpan.style.animationDelay = `${delay}s`;
+          spaceSpan.style.display = "inline-block";
+          spaceSpan.style.opacity = "0";
+          spaceSpan.style.animation = "appear 0.05s forwards";
+          container.appendChild(spaceSpan);
+        }
+      });
     }
 
-    wordSpan.textContent = word;
-    wordSpan.style.animationDelay = `${delay}s`;
-    container.appendChild(wordSpan);
-
-    delay += 0.5;
-
-    // Додаємо пробіл як окремий span, що займає місце!
-    if (wordIndex !== words.length - 1) {
-      const spaceSpan = document.createElement("span");
-      spaceSpan.innerHTML = "&nbsp;";
-      spaceSpan.style.animationDelay = `${delay}s`;
-      spaceSpan.style.display = "inline-block";
-      spaceSpan.style.opacity = "0";
-      spaceSpan.style.animation = "appear 0.05s forwards";
-      container.appendChild(spaceSpan);
-    }
-  });
-}
-
-
-
-animateText();
-
+    animateText();
 
     let slideIndex = 0;
     const slides = document.getElementsByClassName("slide");
@@ -173,6 +171,14 @@ animateText();
     }
 
     showSlides();
+
+    // Розблокування аудіо і відтворення після кліку на сторінку
+    document.body.addEventListener("click", () => {
+      const audio = document.getElementById("audio");
+      if (audio) {
+        audio.play();  // Починаємо відтворення з початку
+      }
+    });
   </script>
 </body>
 </html>
