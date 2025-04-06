@@ -29,6 +29,8 @@
       height: 100%;
       animation: fade 1.5s ease-in-out;
       display: flex;
+      flex-direction: column;
+      gap: 12px;
       justify-content: center;
       align-items: center;
       text-align: center;
@@ -94,6 +96,7 @@
   <div class="slideshow-container">
     <div class="slide">
       <div id="firstSlideText" class="animated-text"></div>
+      <div>P.S. Клікни по сторінці, відбудеться магія, і увімкнеться дуже гарна пісенька 🥰</div>
     </div>
     <div class="slide">
       <img src="photo_2024-10-07_00-01-59.jpg" alt="1" />
@@ -117,13 +120,12 @@
     </div>
   </div>
 
-  <!-- Аудіо без autoplay -->
   <audio id="audio" loop>
     <source src="sertse.mp3" type="audio/mpeg">
   </audio>
 
   <script>
-    const text = "Що робить Оленочку неповторною? Дрібниці, які роблять її особливою";
+    const text = "Що робить Оленочку неповторною? Дрібниці, які роблять її особливою. Ейй, посміхнися! 😜";
     const container = document.getElementById("firstSlideText");
 
     function animateText() {
@@ -142,7 +144,6 @@
 
         delay += 0.5;
 
-        // Додаємо пробіл як окремий span, що займає місце!
         if (wordIndex !== words.length - 1) {
           const spaceSpan = document.createElement("span");
           spaceSpan.innerHTML = "&nbsp;";
@@ -167,16 +168,15 @@
       slideIndex++;
       if (slideIndex > slides.length) { slideIndex = 1; }
       slides[slideIndex - 1].style.display = "flex";
-      setTimeout(showSlides, 7000);
+      setTimeout(showSlides, 10000);
     }
 
     showSlides();
 
-    // Розблокування аудіо і відтворення після кліку на сторінку
     document.body.addEventListener("click", () => {
       const audio = document.getElementById("audio");
       if (audio) {
-        audio.play();  // Починаємо відтворення з початку
+        audio.play(); 
       }
     });
   </script>
