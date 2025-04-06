@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Що робить Оленочку неповторною? Дрібниці, які роблять її особливою</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #111;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .slideshow-container {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+    }
+
+    .slide {
+      display: none;
+      width: 100%;
+      height: 100%;
+      animation: fade 1.5s ease-in-out;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .slide img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+
+    .caption {
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      font-size: 1.2em;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 10px 0;
+      border-radius: 0 0 12px 12px;
+    }
+
+    .animated-text span {
+      opacity: 0;
+      display: inline-block;
+      animation: appear 0.05s forwards;
+    }
+
+    .highlight {
+      color: #ffd700;
+      animation: glow 1.2s ease-in-out infinite alternate;
+      font-weight: 600;
+    }
+
+    @keyframes appear {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+    }
+
+    @keyframes glow {
+      0% {
+        text-shadow: 0 0 5px #ffd700, 0 0 10px #ffd700;
+      }
+      100% {
+        text-shadow: 0 0 15px #ffd700, 0 0 25px #ffd700;
+      }
+    }
+
+    @keyframes fade {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="slideshow-container">
+    <div class="slide">
+      <div id="firstSlideText" class="animated-text"></div>
+    </div>
+    <div class="slide">
+      <img src="photo_2024-10-07_00-01-59.jpg" alt="1" />
+      <div class="caption">Посмішка. Бо вона така, що викликає посмішку у відповідь 🥰</div>
+    </div>
+    <div class="slide">
+      <img src="photo_2024-09-25_22-08-25.jpg" alt="2" />
+      <div class="caption">Очі. В них не тільки блиск. В них затишок. І трохи магії 😇</div>
+    </div>
+    <div class="slide">
+      <img src="photo_2024-11-16_19-26-25.jpg" alt="3" />
+      <div class="caption">Голос. Навіть коли вона злиться, в її голосі є щось таке... що хочеться обійняти 🤗</div>
+    </div>
+    <div class="slide">
+      <img src="photo_2025-04-04_18-55-35.jpg" alt="4" />
+      <div class="caption">Дуркуватість. Бо з нею не треба прикидатися кимось. Можна просто бути самим собою 👻</div>
+    </div>
+    <div class="slide">
+      <img src="photo_2024-08-25_00-43-57.jpg" alt="5" />
+      <div class="caption">Уважність. Вона помічає дрібниці. Запам'ятовує те, що інші б забули. І це чіпляє 😍</div>
+    </div>
+  </div>
+
+  <audio autoplay loop>
+    <source src="sertse.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+const text = "Що робить Оленочку неповторною? Дрібниці, які роблять її особливою";
+const container = document.getElementById("firstSlideText");
+
+function animateText() {
+  let delay = 0;
+  const words = text.split(" ");
+  words.forEach((word, wordIndex) => {
+    const wordSpan = document.createElement("span");
+
+    if (["неповторною?", "неповторною", "особливою.", "особливою"].includes(word)) {
+      wordSpan.className = "highlight";
+    }
+
+    wordSpan.textContent = word;
+    wordSpan.style.animationDelay = `${delay}s`;
+    container.appendChild(wordSpan);
+
+    delay += 0.5;
+
+    // Додаємо пробіл як окремий span, що займає місце!
+    if (wordIndex !== words.length - 1) {
+      const spaceSpan = document.createElement("span");
+      spaceSpan.innerHTML = "&nbsp;";
+      spaceSpan.style.animationDelay = `${delay}s`;
+      spaceSpan.style.display = "inline-block";
+      spaceSpan.style.opacity = "0";
+      spaceSpan.style.animation = "appear 0.05s forwards";
+      container.appendChild(spaceSpan);
+    }
+  });
+}
+
+
+
+animateText();
+
+
+    let slideIndex = 0;
+    const slides = document.getElementsByClassName("slide");
+
+    function showSlides() {
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1; }
+      slides[slideIndex - 1].style.display = "flex";
+      setTimeout(showSlides, 7000);
+    }
+
+    showSlides();
+  </script>
+</body>
+</html>
