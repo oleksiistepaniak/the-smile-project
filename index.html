@@ -17,6 +17,19 @@
       overflow: hidden;
     }
 
+    body {
+  background: linear-gradient(45deg, #111, #222, #333);
+  background-size: 300% 300%;
+  animation: gradientAnimation 5s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
     .stars {
       position: fixed;
       top: 0;
@@ -203,7 +216,7 @@
     <div class="slide">
       <div id="firstSlideText" class="animated-text">Давай пригадаємо спільні моменти, які в нас з тобою були. Ці теплі спогади! 🥰</div>
     </div>
-    
+
     <div class="slide">
       <video autoplay muted playsinline loop class="video-slide">
         <source src="video_1.mp4" type="video/mp4">
@@ -239,11 +252,6 @@
     <div class="slide">
       <video autoplay muted playsinline loop class="video-slide">
         <source src="video_7.mp4" type="video/mp4">
-      </video>
-    </div>
-    <div class="slide">
-      <video autoplay muted playsinline loop class="video-slide">
-        <source src="video_8.mp4" type="video/mp4">
       </video>
     </div>
     <div class="slide"><img src="photo_13.jpg" alt="13" /></div>
