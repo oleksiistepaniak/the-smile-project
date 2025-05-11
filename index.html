@@ -17,10 +17,67 @@
       overflow: hidden;
     }
 
+    .stars {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .star {
+      position: absolute;
+      background-color: white;
+      border-radius: 50%;
+      width: 2px;
+      height: 2px;
+      animation: twinkle 2s infinite ease-in-out;
+      opacity: 0.8;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.1; }
+      50% { opacity: 0.8; }
+    }
+
+    .butterflies {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .butterfly {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/4/44/Butterfly.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      animation: fly 5s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes fly {
+      0% {
+        transform: translate(0, 0) rotate(0deg);
+      }
+      100% {
+        transform: translate(100vw, 100vh) rotate(720deg);
+      }
+    }
+
     .slideshow-container {
       position: relative;
       max-width: 90vw;
       max-height: 90vh;
+      z-index: 1;
     }
 
     .slide {
@@ -67,31 +124,31 @@
     }
 
     .video-slide {
-     width: 100%;
-  height: 450px;
-  border-radius: 12px;
-  object-fit: cover;
-}
+      width: 100%;
+      height: 450px;
+      border-radius: 12px;
+      object-fit: cover;
+    }
 
-.typing-container {
-  font-size: 1.6rem;
-  font-weight: 500;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 2px solid #ffd700;
-  width: 0;
-  animation: typing 4s steps(50, end) forwards, blink 0.7s step-end infinite;
-}
+    .typing-container {
+      font-size: 1.6rem;
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid #ffd700;
+      width: 0;
+      animation: typing 4s steps(50, end) forwards, blink 0.7s step-end infinite;
+    }
 
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
-}
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
 
-@keyframes blink {
-  0%, 100% { border-color: transparent }
-  50% { border-color: #ffd700 }
-}
+    @keyframes blink {
+      0%, 100% { border-color: transparent }
+      50% { border-color: #ffd700 }
+    }
 
     @keyframes appear {
       to {
@@ -120,62 +177,26 @@
   </style>
 </head>
 <body>
+  <div class="stars"></div>
+  <div class="butterflies"></div>
+
   <div class="slideshow-container">
-    <div class="slide">
-      <div class="typing-container">
-        Оленочка, сподіваюсь, я хоч трішки підняв тобі настрій. Проте це ще не все!
-      </div>
-    </div>
     <div class="slide">
       <div id="firstSlideText" class="animated-text"></div>
       <div>P.S. Клікни по сторінці, відбудеться магія, і увімкнеться дуже гарна пісенька 🥰</div>
     </div>
+    <div class="slide"><img src="photo_1.jpg" alt="1" /><div class="caption">Посмішка. Бо вона така, що викликає посмішку у відповідь 🥰</div></div>
+    <div class="slide"><img src="photo_2.jpg" alt="2" /><div class="caption">Очі. В них не тільки блиск. В них затишок. І трохи магії 😇</div></div>
+    <div class="slide"><img src="photo_3.jpg" alt="3" /><div class="caption">Голос. Навіть коли вона злиться, в її голосі є щось таке... що хочеться обійняти 🤗</div></div>
+    <div class="slide"><img src="photo_4.jpg" alt="4" /><div class="caption">Дуркуватість. Бо з нею не треба прикидатися кимось. Можна просто бути самим собою 👻</div></div>
+    <div class="slide"><img src="photo_5.jpg" alt="5" /><div class="caption">Уважність. Вона помічає дрібниці. Запам'ятовує те, що інші б забули. І це чіпляє 😍</div></div>
+    <div class="slide"><img src="photo_6.jpg" alt="6" /><div class="caption">Простота. Бо з нею все стає легше. Навіть найважчі дні 🌤️</div></div>
+    <div class="slide"><img src="photo_7.jpg" alt="7" /><div class="caption">Стиль. Бо вона завжди виглядає так, ніби створена з естетики 🖼️😍</div></div>
+    <div class="slide"><img src="photo_8.jpg" alt="8" /><div class="caption">Погляди на життя. Їх хочеться слухати і думати разом 🧠</div></div>
+    <div class="slide"><img src="photo_9.jpg" alt="9" /><div class="caption">Звичайність у кращому сенсі. Вона така, як є. Без прикрас. І саме така - ідеальна 🧺</div></div>
+    <div class="slide"><img src="photo_10.jpg" alt="10" /><div class="caption">Незграбність іноді. Бо вона тоді така мила, без захисту 🐣🥰</div></div>
     <div class="slide">
-      <img src="photo_1.jpg" alt="1" />
-      <div class="caption">Посмішка. Бо вона така, що викликає посмішку у відповідь 🥰</div>
-    </div>
-    <div class="slide">
-      <img src="photo_2.jpg" alt="2" />
-      <div class="caption">Очі. В них не тільки блиск. В них затишок. І трохи магії 😇</div>
-    </div>
-    <div class="slide">
-      <img src="photo_3.jpg" alt="3" />
-      <div class="caption">Голос. Навіть коли вона злиться, в її голосі є щось таке... що хочеться обійняти 🤗</div>
-    </div>
-    <div class="slide">
-      <img src="photo_4.jpg" alt="4" />
-      <div class="caption">Дуркуватість. Бо з нею не треба прикидатися кимось. Можна просто бути самим собою 👻</div>
-    </div>
-    <div class="slide">
-      <img src="photo_5.jpg" alt="5" />
-      <div class="caption">Уважність. Вона помічає дрібниці. Запам'ятовує те, що інші б забули. І це чіпляє 😍</div>
-    </div>
-    <div class="slide">
-      <img src="photo_6.jpg" alt="6" />
-      <div class="caption">Простота. Бо з нею все стає легше. Навіть найважчі дні 🌤️</div>
-    </div>
-    <div class="slide">
-      <img src="photo_7.jpg" alt="7" />
-      <div class="caption">Стиль. Бо вона завжди виглядає так, ніби створена з естетики 🖼️😍</div>
-    </div>
-    <div class="slide">
-      <img src="photo_8.jpg" alt="8" />
-      <div class="caption">Погляди на життя. Їх хочеться слухати і думати разом 🧠</div>
-    </div>
-    <div class="slide">
-      <img src="photo_9.jpg" alt="9" />
-      <div class="caption">Звичайність у кращому сенсі. Вона така, як є. Без прикрас. І саме така - ідеальна 🧺</div>
-    </div>
-    <div class="slide">
-      <img src="photo_10.jpg" alt="10" />
-      <div class="caption">Незграбність іноді. Бо вона тоді така мила, без захисту 🐣🥰</div>
-    </div>
-    
-
-
-
-    <div class="slide">
-      <video  autoplay muted playsinline class="video-slide">
+      <video autoplay muted playsinline class="video-slide">
         <source src="video_1.mp4" type="video/mp4">
       </video>
       <div class="caption">Це відео показує, як Оленочка робить світ яскравішим ❤️</div>
@@ -187,6 +208,27 @@
   </audio>
 
   <script>
+    const starsContainer = document.querySelector(".stars");
+    for (let i = 0; i < 150; i++) {
+      const star = document.createElement("div");
+      star.classList.add("star");
+      star.style.top = `${Math.random() * 100}%`;
+      star.style.left = `${Math.random() * 100}%`;
+      star.style.animationDuration = `${1 + Math.random() * 2}s`;
+      star.style.opacity = Math.random();
+      starsContainer.appendChild(star);
+    }
+
+    const butterfliesContainer = document.querySelector(".butterflies");
+    for (let i = 0; i < 10; i++) {
+      const butterfly = document.createElement("div");
+      butterfly.classList.add("butterfly");
+      butterfly.style.top = `${Math.random() * 100}%`;
+      butterfly.style.left = `${Math.random() * 100}%`;
+      butterfly.style.animationDuration = `${4 + Math.random() * 3}s`;
+      butterfliesContainer.appendChild(butterfly);
+    }
+
     const text = "Що робить Оленочку неповторною? Дрібниці, які роблять її особливою. Ейй, посміхнися! 😜";
     const container = document.getElementById("firstSlideText");
 
@@ -195,17 +237,13 @@
       const words = text.split(" ");
       words.forEach((word, wordIndex) => {
         const wordSpan = document.createElement("span");
-
         if (["неповторною?", "неповторною", "особливою.", "особливою"].includes(word)) {
           wordSpan.className = "highlight";
         }
-
         wordSpan.textContent = word;
         wordSpan.style.animationDelay = `${delay}s`;
         container.appendChild(wordSpan);
-
         delay += 0.5;
-
         if (wordIndex !== words.length - 1) {
           const spaceSpan = document.createElement("span");
           spaceSpan.innerHTML = "&nbsp;";
