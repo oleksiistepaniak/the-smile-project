@@ -185,6 +185,22 @@
       <div id="firstSlideText" class="animated-text"></div>
       <div>P.S. Клікни по сторінці, відбудеться магія, і увімкнеться дуже гарна пісенька 🥰</div>
     </div>
+    <div class="slide">
+      <div id="firstSlideText" class="animated-text">Оленочка, сподіваюсь, я хоч трішки підняв тобі настрій. Проте це ще не все!</div>
+    </div>
+    <div class="slide">
+      <div id="firstSlideText" class="animated-text">Давай пригадаємо спільні моменти, які в нас з тобою були. Ці теплі спогади! 🥰</div>
+    </div>
+    <div class="slide">
+      <video autoplay muted playsinline class="video-slide">
+        <source src="video_1.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="slide">
+      <video autoplay muted playsinline class="video-slide">
+        <source src="video_2.mp4" type="video/mp4">
+      </video>
+    </div>
     <div class="slide"><img src="photo_1.jpg" alt="1" /><div class="caption">Посмішка. Бо вона така, що викликає посмішку у відповідь 🥰</div></div>
     <div class="slide"><img src="photo_2.jpg" alt="2" /><div class="caption">Очі. В них не тільки блиск. В них затишок. І трохи магії 😇</div></div>
     <div class="slide"><img src="photo_3.jpg" alt="3" /><div class="caption">Голос. Навіть коли вона злиться, в її голосі є щось таке... що хочеться обійняти 🤗</div></div>
@@ -195,12 +211,7 @@
     <div class="slide"><img src="photo_8.jpg" alt="8" /><div class="caption">Погляди на життя. Їх хочеться слухати і думати разом 🧠</div></div>
     <div class="slide"><img src="photo_9.jpg" alt="9" /><div class="caption">Звичайність у кращому сенсі. Вона така, як є. Без прикрас. І саме така - ідеальна 🧺</div></div>
     <div class="slide"><img src="photo_10.jpg" alt="10" /><div class="caption">Незграбність іноді. Бо вона тоді така мила, без захисту 🐣🥰</div></div>
-    <div class="slide">
-      <video autoplay muted playsinline class="video-slide">
-        <source src="video_1.mp4" type="video/mp4">
-      </video>
-      <div class="caption">Це відео показує, як Оленочка робить світ яскравішим ❤️</div>
-    </div>
+ 
   </div>
 
   <audio id="audio" loop>
@@ -268,7 +279,7 @@
       slideIndex++;
       if (slideIndex > slides.length) { slideIndex = 1; }
       slides[slideIndex - 1].style.display = "flex";
-      setTimeout(showSlides, 10000);
+      setTimeout(showSlides, 12000);
     }
 
     showSlides();
