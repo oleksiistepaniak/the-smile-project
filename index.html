@@ -73,6 +73,26 @@
   object-fit: cover;
 }
 
+.typing-container {
+  font-size: 1.6rem;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #ffd700;
+  width: 0;
+  animation: typing 4s steps(50, end) forwards, blink 0.7s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  0%, 100% { border-color: transparent }
+  50% { border-color: #ffd700 }
+}
+
     @keyframes appear {
       to {
         opacity: 1;
@@ -101,6 +121,11 @@
 </head>
 <body>
   <div class="slideshow-container">
+    <div class="slide">
+      <div class="typing-container">
+        Оленочка, сподіваюсь, я хоч трішки підняв тобі настрій. Проте це ще не все!
+      </div>
+    </div>
     <div class="slide">
       <div id="firstSlideText" class="animated-text"></div>
       <div>P.S. Клікни по сторінці, відбудеться магія, і увімкнеться дуже гарна пісенька 🥰</div>
@@ -145,7 +170,7 @@
       <img src="photo_10.jpg" alt="10" />
       <div class="caption">Незграбність іноді. Бо вона тоді така мила, без захисту 🐣🥰</div>
     </div>
-
+    
 
 
 
