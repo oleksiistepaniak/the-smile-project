@@ -325,6 +325,7 @@
     animateText();
 
     let slideIndex = 0;
+    let isAlreadyStarted = false;
     const slides = document.getElementsByClassName("slide");
 
     function showSlides() {
@@ -334,16 +335,24 @@
       slideIndex++;
       if (slideIndex > slides.length) { slideIndex = 1; }
       slides[slideIndex - 1].style.display = "flex";
+      slides[slideIndex - 1].
       setTimeout(showSlides, 12000);
     }
 
-    showSlides();
+    for (let i = 1; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
 
     document.body.addEventListener("click", () => {
       const audio = document.getElementById("audio");
       if (audio) {
         audio.play(); 
       }
+      if (!isAlreadyStarted) {
+        isAlreadyStarted = true;
+        showSlides();
+      }
+
     });
   </script>
 </body>
