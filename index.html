@@ -199,6 +199,10 @@
       <div>P.S. Клікни по сторінці, відбудеться магія, і увімкнеться дуже гарна пісенька 🥰</div>
     </div>
    
+    <div class="slide">
+      <div class="text-slide">Ну звісно, Жадан і Собаки & Христина Соловій — <strong>Серце</strong>. В мене ця пісня з тобою асоціюється 🤗. Ну, тоді почнімо!</div>
+      <div><strong>P.S. - Для навігації клікни по сторінці в будь-якому місці</strong></div>
+    </div>
     <div class="slide"><img src="photo_1.jpg" alt="1" /><div class="caption">Посмішка. Бо вона така, що викликає посмішку у відповідь 🥰</div></div>
     <div class="slide"><img src="photo_2.jpg" alt="2" /><div class="caption">Очі. В них не тільки блиск. В них затишок. І трохи магії 😇</div></div>
     <div class="slide"><img src="photo_3.jpg" alt="3" /><div class="caption">Голос. Навіть коли вона злиться, в її голосі є щось таке... що хочеться обійняти 🤗</div></div>
@@ -324,33 +328,28 @@
 
     animateText();
 
-    let slideIndex = 0;
-    let isAlreadyStarted = false;
-    const slides = document.getElementsByClassName("slide");
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
 
-    function showSlides() {
-      for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
+    function showSlide(index) {
+      slides.forEach(slide => slide.style.display = 'none');
+      if (slides[index]) {
+        slides[index].style.display = 'flex';
       }
-      slideIndex++;
-      if (slideIndex > slides.length) { slideIndex = 1; }
-      slides[slideIndex - 1].style.display = "flex";
-      slides[slideIndex - 1].
-      setTimeout(showSlides, 12000);
     }
 
-    for (let i = 1; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
+    document.body.addEventListener('click', () => {
+      currentSlide++;
+      if (currentSlide >= slides.length) currentSlide = 0;
+      showSlide(currentSlide);
+    });
+
+    showSlide(currentSlide);
 
     document.body.addEventListener("click", () => {
       const audio = document.getElementById("audio");
       if (audio) {
         audio.play(); 
-      }
-      if (!isAlreadyStarted) {
-        isAlreadyStarted = true;
-        showSlides();
       }
 
     });
